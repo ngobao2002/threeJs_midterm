@@ -78,7 +78,11 @@ function createChristmasTree() {
 
     // Trunk
     const trunkGeometry = new THREE.BoxGeometry(2, 4, 2);
-    const trunkMaterial = new THREE.MeshBasicMaterial({ color: 0x8B4513 }); // Brown color
+    
+    // Load wood grain texture for the trunk
+    const trunkTexture = new THREE.TextureLoader().load('assets/arid2_lf.jpg');
+    const trunkMaterial = new THREE.MeshBasicMaterial({ map: trunkTexture });
+    
     const trunk = new THREE.Mesh(trunkGeometry, trunkMaterial);
     trunk.position.y = -2;
     tree.add(trunk);
